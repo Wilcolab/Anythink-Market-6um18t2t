@@ -1,4 +1,10 @@
 import moment from 'moment';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 interface Router {
     id: string;
@@ -9,15 +15,27 @@ interface Router {
 
 interface RouterCardProps {
     router: Router;
+    handleModal: (router: Router) => void;
 }
 
-const RouterCard = ({ router }: RouterCardProps) => {
+const RouterCard = ({ router, handleModal }: RouterCardProps) => {
     return (
-        <div key={router.id} className="router-card">
-                    <h3>{router.name}</h3>
-                    <p>Type: {router.type}</p>
-                    <p>{moment(router.updatatedAt).format('MMMM Do YYYY')}</p>
-                </div>
+        <Card sx={{ minWidth: 275, margin: 2 }}>
+            <CardContent>
+                <Typography variant="h5" component="div">
+                    {router.name}
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    {router.type}
+                </Typography>
+                <Typography variant="body2">
+                    Last updated: {moment(router.updatatedAt).fromNow()}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small" onClick={() => handleModal(router)}>Learn More</Button>
+            </CardActions>
+        </Card>
     );
 }
 

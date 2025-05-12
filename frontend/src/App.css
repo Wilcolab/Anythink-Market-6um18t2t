@@ -45,6 +45,12 @@
   --dn-light-blue: #4B9CD3;
   --dn-grey: #333333;
   --dn-light-grey: #f5f5f5;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+#root {
+  width: 100%;
 }
 
 /* Coming Soon Placeholder */
@@ -85,4 +91,9 @@
   background: linear-gradient(90deg, var(--dn-blue), var(--dn-light-blue));
   margin: 2rem auto;
   border-radius: 2px;
+}
+
+.router-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 }
