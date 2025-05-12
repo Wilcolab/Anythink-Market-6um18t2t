@@ -9,12 +9,7 @@ interface Router {
     type: string;
     updatatedAt: string;
 }
-
-interface RouterListProps {
-    handleModal: (router: Router) => void;
-}
-
-const RouterList = ({ handleModal }: RouterListProps) => {
+const RouterList = () => {
     const { state } = useRouterFilter();
     const { routerType, sortOption } = state;
     const { routers, loading, error } = useRouterData();
@@ -28,10 +23,6 @@ const RouterList = ({ handleModal }: RouterListProps) => {
             return a.name.localeCompare(b.name);
         } else if (sortOption === 'name') {
             return b.name.localeCompare(a.name);
-        } else if (sortOption === "updatedAt") {
-            const dateA = a.uptime ? new Date(a.uptime).getTime() : 0;
-            const dateB = b.uptime ? new Date(b.uptime).getTIme() : 0;
-            return dateB - dateA;
         }
         return 0;
     });
@@ -42,7 +33,7 @@ const RouterList = ({ handleModal }: RouterListProps) => {
     return (
         <div className="router-list">
             {sortedRouters.map((router: Router) => (
-                <RouterCard key={router.id} router={router} handleModal={handleModal} />
+                <RouterCard key={router.id} router={router} />
             ))}
         </div>
     );

@@ -15,10 +15,9 @@ interface Router {
 
 interface RouterCardProps {
     router: Router;
-    handleModal: (router: Router) => void;
 }
 
-const RouterCard = ({ router, handleModal }: RouterCardProps) => {
+const RouterCard = ({ router }: RouterCardProps) => {
     return (
         <Card sx={{ minWidth: 275, margin: 2 }}>
             <CardContent>
@@ -33,7 +32,7 @@ const RouterCard = ({ router, handleModal }: RouterCardProps) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small" onClick={() => handleModal(router)}>Learn More</Button>
+                <Button size="small">Learn More</Button>
             </CardActions>
         </Card>
     );
