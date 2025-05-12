@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from 'react';
 
-type RouterType = 'All' | 'WiFi' | 'Enterprise' | 'Home';
+type RouterType = 'all' | 'wifi' | 'enterprise' | 'home';
 type SortOptions = string;
 
 interface RouterFilterState {
@@ -13,7 +13,7 @@ type Action =
     | { type: 'SET_SORT_BY'; payload: SortOption };
 
 const initialState: RouterFilterState = {
-    routerType: 'All',
+    routerType: 'all',
     sortOption: 'name',
 };
 
@@ -25,12 +25,12 @@ const RouterFilterContext = createContext<{
     dispatch: () => null,
 });
 
-function reducer(state: ProductFilterState, action: Action): ProductFilterState {
+function reducer(state: RouterFilterState, action: Action): RouterFilterState {
     switch (action.type) {
         case 'SET_ROUTER_TYPE':
-            return { ...state, filterCategory: action.payload };
+            return { ...state, routerType: action.payload };
         case 'SET_SORT_BY':
-            return { ...state, sortBy: action.payload };
+            return { ...state, sortOption: action.payload };
         default:
             return state;
     }

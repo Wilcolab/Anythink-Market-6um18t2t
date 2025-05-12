@@ -75,6 +75,7 @@
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  padding-left: 18px;
 }
 
 .placeholder-text {
@@ -96,4 +97,9 @@
 .router-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+}
+
+.filter-container {
+    display: flex;
+    gap: 2em;
 }

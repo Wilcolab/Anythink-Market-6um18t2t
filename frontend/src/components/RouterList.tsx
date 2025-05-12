@@ -16,18 +16,22 @@ interface RouterListProps {
 
 const RouterList = ({ handleModal }: RouterListProps) => {
     const { state } = useRouterFilter();
-    const { routerType, sortOptions } = state;
+    const { routerType, sortOption } = state;
     const { routers, loading, error } = useRouterData();
 
-    const filteredRouters = routerType === 'All' 
+    const filteredRouters = routerType === 'all' 
         ? routers 
         : [...routers].filter(router => router.type === routerType);
 
     const sortedRouters = [...filteredRouters].sort((a, b) => {
-        if (sortOptions === 'name') {
-            return a.title.localeCompare(b.title);
-        } else if (sortOptions === 'name') {
-            return b.title.localeCompare(a.title);
+        if (sortOption === 'name') {
+            return a.name.localeCompare(b.name);
+        } else if (sortOption === 'name') {
+            return b.name.localeCompare(a.name);
+        } else if (sortOption === "updatedAt") {
+            const dateA = a.uptime ? new Date(a.uptime).getTime() : 0;
+            const dateB = b.uptime ? new Date(b.uptime).getTIme() : 0;
+            return dateB - dateA;
         }
         return 0;
     });

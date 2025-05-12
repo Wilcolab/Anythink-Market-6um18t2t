@@ -38,7 +38,7 @@ function App() {
     <RouterDataProvider>
       <RouterFilterProvider>
       <div className="App-main">
-        <h2 className="placeholder-title">Sky Rocket Routers</h2>
+        <h2 className="placeholder-title">DriveNet Routers</h2>
         <RouterFilterControls />
         <RouterList handleModal={() => selectedRouter && handleModal(selectedRouter)} />
         <RouterDetails open={false} handleClose={() => {selectedRouter && handleModal(selectedRouter)}} router={{ id: '', name: '', type: '', updatedAt: '' }} />

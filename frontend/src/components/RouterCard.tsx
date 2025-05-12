@@ -29,7 +29,7 @@ const RouterCard = ({ router, handleModal }: RouterCardProps) => {
                     {router.type}
                 </Typography>
                 <Typography variant="body2">
-                    Last updated: {moment(router.updatatedAt).fromNow()}
+                    Last updated: {moment(router.updatatedAt).format('D MMM YYYY')}
                 </Typography>
             </CardContent>
             <CardActions>
