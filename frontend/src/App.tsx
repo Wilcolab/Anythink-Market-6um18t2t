@@ -24,24 +24,13 @@ function App() {
     updatedAt: string;
   }
 
-  const handleModal = (router: Router): void => {
-    if (!open) {
-      setSelectedRouter(router);
-      setOpen(true);
-      return;
-    }
-    setSelectedRouter(null);
-    setOpen(false);
-  };
-
   return (
     <RouterDataProvider>
       <RouterFilterProvider>
       <div className="App-main">
         <h2 className="placeholder-title">DriveNet Routers</h2>
         <RouterFilterControls />
-        <RouterList handleModal={() => selectedRouter && handleModal(selectedRouter)} />
-        <RouterDetails open={false} handleClose={() => {selectedRouter && handleModal(selectedRouter)}} router={{ id: '', name: '', type: '', updatedAt: '' }} />
+        <RouterList />
       </div>
       </RouterFilterProvider>
     </RouterDataProvider>

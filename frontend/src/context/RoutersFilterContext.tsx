@@ -1,15 +1,15 @@
 import { createContext, useContext, useReducer } from 'react';
 
-type RouterType = 'all' | 'wifi' | 'enterprise' | 'home';
-type SortOptions = string;
+type RouterType = 'all' | 'wifi' | 'enterprise' | 'home' | String;
+type SortOption = string;
 
 interface RouterFilterState {
     routerType: RouterType;
-    sortOption: SortOptions;
+    sortOption: SortOption;
 }
 
 type Action = 
-    | { type: 'SET_ROUTER_TYPE'; payload: routerType }
+    | { type: 'SET_ROUTER_TYPE'; payload: RouterType }
     | { type: 'SET_SORT_BY'; payload: SortOption };
 
 const initialState: RouterFilterState = {
@@ -19,10 +19,10 @@ const initialState: RouterFilterState = {
 
 const RouterFilterContext = createContext<{
     state: RouterFilterState;
-    dispatch: () => null;
+    dispatch: React.Dispatch<Action>;
 }>({
     state: initialState,
-    dispatch: () => null,
+    dispatch: () => undefined,
 });
 
 function reducer(state: RouterFilterState, action: Action): RouterFilterState {
