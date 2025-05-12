@@ -1,3 +1,4 @@
+import moment from 'moment';
 
 interface Router {
     id: string;
@@ -15,7 +16,7 @@ const RouterCard = ({ router }: RouterCardProps) => {
         <div key={router.id} className="router-card">
                     <h3>{router.name}</h3>
                     <p>Type: {router.type}</p>
-                    <p>Updated At: {new Date(router.updatatedAt).toLocaleDateString()}</p>
+                    <p>{moment(router.updatatedAt).format('MMMM Do YYYY')}</p>
                 </div>
     );
 }
