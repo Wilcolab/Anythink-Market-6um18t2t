@@ -5,7 +5,7 @@ interface Router {
     id: string;
     name: string;
     type: string;
-    updatatedAt: string;
+    updatedAt: string;
 }
 
 interface RouterDataContextProps {

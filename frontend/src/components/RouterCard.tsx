@@ -10,14 +10,15 @@ interface Router {
     id: string;
     name: string;
     type: string;
-    updatatedAt: string;
+    updatedAt: string;
 }
 
 interface RouterCardProps {
     router: Router;
+    handleDetails: (router: Router) => void;
 }
 
-const RouterCard = ({ router }: RouterCardProps) => {
+const RouterCard = ({ router, handleDetails }: RouterCardProps) => {
     return (
         <Card sx={{ minWidth: 275, margin: 2 }}>
             <CardContent>
@@ -28,11 +29,11 @@ const RouterCard = ({ router }: RouterCardProps) => {
                     {router.type}
                 </Typography>
                 <Typography variant="body2">
-                    Last updated: {moment(router.updatatedAt).format('D MMM YYYY')}
+                    Last updated: {moment(router.updatedAt).format('DD/MM/YYYY')}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Learn More</Button>
+                <Button size="small" onClick={() => handleDetails(router)}>More Details</Button>
             </CardActions>
         </Card>
     );
